@@ -1,1 +1,1433 @@
 # digital-portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mann R Sonara | Civil Engineer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #E8DCC8;
+    --cream: #F5F0E8;
+    --dark: #1A1612;
+    --rust: #B5500B;
+    --gold: #C8922A;
+    --stone: #6B6355;
+    --concrete: #9B9489;
+    --white: #FDFAF5;
+    --accent: #2C5F8A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    padding: 18px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(26,22,18,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,146,42,0.2);
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--gold); letter-spacing: 1px;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: var(--concrete); text-decoration: none;
+    font-size: 13px; font-weight: 500; letter-spacing: 1.2px;
+    text-transform: uppercase; transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── SECTIONS ─── */
+  section {
+    min-height: 100vh;
+    padding: 120px 48px 80px;
+    position: relative;
+  }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  /* ─── COVER PAGE ─── */
+  #cover {
+    background: var(--dark);
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .cover-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+  }
+  .cover-left { position: relative; }
+  .cover-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; letter-spacing: 3px;
+    color: var(--rust); text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .cover-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 6vw, 82px);
+    font-weight: 900; line-height: 1.0;
+    color: var(--cream);
+  }
+  .cover-name span { color: var(--gold); }
+  .cover-tagline {
+    margin-top: 28px;
+    font-size: 16px; line-height: 1.7;
+    color: var(--concrete); max-width: 420px;
+    font-style: italic;
+    border-left: 3px solid var(--rust);
+    padding-left: 20px;
+  }
+  .cover-meta {
+    margin-top: 40px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .cover-meta-item {
+    display: flex; gap: 16px; align-items: center;
+    font-size: 14px; color: var(--sand);
+  }
+  .cover-meta-item .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--stone); text-transform: uppercase;
+    min-width: 100px;
+  }
+  .cover-right { position: relative; display: flex; justify-content: center; }
+  .photo-frame {
+    width: 340px; height: 420px;
+    position: relative;
+  }
+  .photo-frame::before {
+    content: '';
+    position: absolute; inset: -12px -12px 12px 12px;
+    border: 2px solid var(--gold);
+    z-index: 0;
+  }
+  .photo-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #2A2520 0%, #3D3530 50%, #2A2520 100%);
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .photo-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8922A' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .photo-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px; font-weight: 900;
+    color: var(--gold); opacity: 0.6;
+    letter-spacing: -4px;
+    position: relative; z-index: 1;
+  }
+  .photo-caption {
+    position: relative; z-index: 1;
+    margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--concrete); text-transform: uppercase;
+  }
+  .decorative-line {
+    position: absolute; right: -40px; top: 50%;
+    width: 80px; height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+
+  /* ─── TOC ─── */
+  #toc { background: #141210; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 4px;
+    color: var(--rust); text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 700; line-height: 1.1;
+    color: var(--cream); margin-bottom: 60px;
+  }
+  .toc-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .toc-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 32px;
+    background: rgba(255,255,255,0.02);
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    position: relative; overflow: hidden;
+  }
+  .toc-item::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 0; background: var(--rust);
+    transition: width 0.3s;
+  }
+  .toc-item:hover::before { width: 3px; }
+  .toc-item:hover { background: rgba(181,80,11,0.08); border-color: rgba(181,80,11,0.2); }
+  .toc-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; color: var(--stone);
+    letter-spacing: 1px; margin-right: 20px;
+  }
+  .toc-text { flex: 1; color: var(--sand); font-size: 15px; font-weight: 500; }
+  .toc-arrow { color: var(--rust); font-size: 18px; }
+
+  /* ─── INTRO ─── */
+  #intro { background: var(--dark); }
+  .intro-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 80px; }
+  .intro-body p {
+    font-size: 17px; line-height: 1.9;
+    color: var(--sand); margin-bottom: 24px;
+  }
+  .intro-body p strong { color: var(--gold); font-weight: 500; }
+  .values-panel {
+    background: rgba(200,146,42,0.06);
+    border: 1px solid rgba(200,146,42,0.2);
+    padding: 36px 28px;
+    height: fit-content;
+  }
+  .values-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .value-item {
+    display: flex; gap: 16px; margin-bottom: 24px;
+  }
+  .value-icon {
+    font-size: 22px; flex-shrink: 0;
+  }
+  .value-name {
+    font-weight: 500; color: var(--cream);
+    font-size: 14px; margin-bottom: 4px;
+  }
+  .value-desc { font-size: 13px; color: var(--stone); line-height: 1.5; }
+
+  /* ─── RESUME/CV ─── */
+  #resume { background: #141210; }
+  .cv-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; }
+  .cv-section { margin-bottom: 48px; }
+  .cv-section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--rust);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(181,80,11,0.3);
+  }
+  .cv-entry { margin-bottom: 28px; position: relative; padding-left: 20px; }
+  .cv-entry::before {
+    content: '';
+    position: absolute; left: 0; top: 8px;
+    width: 6px; height: 6px;
+    background: var(--gold); border-radius: 50%;
+  }
+  .cv-entry-title { font-weight: 500; color: var(--cream); font-size: 15px; }
+  .cv-entry-sub { color: var(--gold); font-size: 13px; margin: 3px 0; }
+  .cv-entry-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: var(--stone); letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .cv-entry-desc { font-size: 14px; color: var(--concrete); line-height: 1.6; }
+  .skill-tag {
+    display: inline-block;
+    padding: 5px 14px; margin: 4px;
+    background: rgba(181,80,11,0.12);
+    border: 1px solid rgba(181,80,11,0.25);
+    color: var(--sand); font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+  .cv-sidebar-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 28px; margin-bottom: 24px;
+  }
+  .sidebar-card-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--rust);
+    margin-bottom: 16px;
+  }
+  .cert-item {
+    display: flex; gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+  }
+  .cert-item:last-child { border-bottom: none; }
+  .cert-bullet { color: var(--gold); margin-top: 3px; }
+  .cert-name { color: var(--sand); line-height: 1.4; }
+  .cert-year { color: var(--stone); font-size: 11px; margin-top: 3px; font-family: 'DM Mono', monospace; }
+
+  /* ─── PROJECTS ─── */
+  #projects { background: var(--dark); }
+  .project-card {
+    border: 1px solid rgba(200,146,42,0.15);
+    margin-bottom: 60px;
+    overflow: hidden;
+    position: relative;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--rust), var(--gold));
+  }
+  .project-header {
+    padding: 36px 40px 28px;
+    background: rgba(255,255,255,0.02);
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .project-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px; font-weight: 900;
+    color: rgba(200,146,42,0.1);
+    line-height: 1; flex-shrink: 0;
+    margin-left: 20px;
+  }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .project-subtitle { font-size: 14px; color: var(--gold); }
+  .project-body { padding: 32px 40px; }
+  .project-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 32px; margin-bottom: 32px;
+  }
+  .project-section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--rust);
+    margin-bottom: 10px;
+  }
+  .project-section-text {
+    font-size: 14px; color: var(--concrete); line-height: 1.7;
+  }
+  .project-visual {
+    margin-top: 24px;
+    background: linear-gradient(135deg, rgba(44,95,138,0.15), rgba(200,146,42,0.08));
+    border: 1px solid rgba(44,95,138,0.2);
+    padding: 24px;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 120px; position: relative; overflow: hidden;
+  }
+  .project-visual-inner {
+    text-align: center;
+  }
+  .project-visual-icon { font-size: 40px; margin-bottom: 8px; }
+  .project-visual-label { font-size: 13px; color: var(--accent); font-family: 'DM Mono', monospace; letter-spacing: 1px; }
+  .outcome-pill {
+    display: inline-block;
+    padding: 6px 16px; margin: 4px;
+    background: rgba(44,95,138,0.15);
+    border: 1px solid rgba(44,95,138,0.3);
+    color: #7FB3D3; font-size: 12px;
+    border-radius: 0;
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { background: #141210; }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .skill-card {
+    padding: 36px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .skill-card:hover { border-color: rgba(200,146,42,0.3); }
+  .skill-card-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; font-weight: 900;
+    color: rgba(200,146,42,0.07);
+    position: absolute; bottom: -10px; right: 16px;
+    line-height: 1;
+  }
+  .skill-card-icon { font-size: 32px; margin-bottom: 16px; }
+  .skill-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .skill-card-desc { font-size: 14px; color: var(--concrete); line-height: 1.7; margin-bottom: 20px; }
+  .skill-bar-label {
+    display: flex; justify-content: space-between;
+    font-size: 12px; margin-bottom: 6px;
+    font-family: 'DM Mono', monospace;
+  }
+  .skill-bar-label span:first-child { color: var(--sand); letter-spacing: 1px; }
+  .skill-bar-label span:last-child { color: var(--gold); }
+  .skill-bar-track {
+    height: 3px; background: rgba(255,255,255,0.08);
+    margin-bottom: 12px;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--rust), var(--gold));
+  }
+  .evidence-tag {
+    display: inline-block;
+    padding: 4px 12px; margin: 3px;
+    background: rgba(181,80,11,0.1);
+    border: 1px solid rgba(181,80,11,0.2);
+    color: var(--concrete); font-size: 11px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ─── COLLABORATION ─── */
+  #collaboration { background: var(--dark); }
+  .collab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .collab-card {
+    padding: 36px;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.02);
+  }
+  .collab-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .collab-card p { font-size: 14px; color: var(--concrete); line-height: 1.8; margin-bottom: 14px; }
+  .role-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(200,146,42,0.1);
+    border-left: 3px solid var(--gold);
+    color: var(--sand); font-size: 13px; margin-bottom: 8px;
+  }
+
+  /* ─── ETHICS / GLOBAL ─── */
+  #ethics { background: #141210; }
+  .ethics-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .ethics-body p { font-size: 15px; color: var(--concrete); line-height: 1.8; margin-bottom: 20px; }
+  .ethics-body p strong { color: var(--sand); }
+  .ethics-panel {
+    background: rgba(44,95,138,0.08);
+    border: 1px solid rgba(44,95,138,0.2);
+    padding: 36px;
+  }
+  .ethics-panel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: #7FB3D3; margin-bottom: 24px;
+  }
+  .ethics-principle {
+    display: flex; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(44,95,138,0.15);
+  }
+  .ethics-principle:last-child { border-bottom: none; }
+  .ethics-dot {
+    width: 8px; height: 8px; background: #7FB3D3;
+    border-radius: 50%; flex-shrink: 0; margin-top: 6px;
+  }
+  .ethics-text { font-size: 14px; color: var(--concrete); line-height: 1.6; }
+
+  /* ─── FUTURE GOALS ─── */
+  #goals { background: var(--dark); }
+  .goals-timeline { position: relative; padding-left: 40px; }
+  .goals-timeline::before {
+    content: '';
+    position: absolute; left: 12px; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, var(--rust), transparent);
+  }
+  .goal-item {
+    position: relative; margin-bottom: 48px;
+  }
+  .goal-marker {
+    position: absolute; left: -44px; top: 4px;
+    width: 14px; height: 14px;
+    border: 2px solid var(--rust); background: var(--dark);
+    border-radius: 50%;
+  }
+  .goal-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--rust); text-transform: uppercase; margin-bottom: 8px;
+  }
+  .goal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--cream); margin-bottom: 12px;
+  }
+  .goal-desc { font-size: 14px; color: var(--concrete); line-height: 1.7; }
+
+  /* ─── CONCLUSION ─── */
+  #conclusion { background: #141210; }
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 40px; }
+  .swot-cell {
+    padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .swot-cell:nth-child(1) { background: rgba(44,95,138,0.12); border: 1px solid rgba(44,95,138,0.2); }
+  .swot-cell:nth-child(2) { background: rgba(200,146,42,0.08); border: 1px solid rgba(200,146,42,0.2); }
+  .swot-cell:nth-child(3) { background: rgba(181,80,11,0.08); border: 1px solid rgba(181,80,11,0.2); }
+  .swot-cell:nth-child(4) { background: rgba(107,99,85,0.12); border: 1px solid rgba(107,99,85,0.2); }
+  .swot-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 900;
+    position: absolute; bottom: -8px; right: 16px;
+    opacity: 0.15;
+  }
+  .swot-cell:nth-child(1) .swot-letter { color: #7FB3D3; }
+  .swot-cell:nth-child(2) .swot-letter { color: var(--gold); }
+  .swot-cell:nth-child(3) .swot-letter { color: var(--rust); }
+  .swot-cell:nth-child(4) .swot-letter { color: var(--stone); }
+  .swot-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .swot-cell:nth-child(1) .swot-title { color: #7FB3D3; }
+  .swot-cell:nth-child(2) .swot-title { color: var(--gold); }
+  .swot-cell:nth-child(3) .swot-title { color: var(--rust); }
+  .swot-cell:nth-child(4) .swot-title { color: var(--concrete); }
+  .swot-list { list-style: none; }
+  .swot-list li {
+    font-size: 13px; color: var(--concrete);
+    line-height: 1.6; margin-bottom: 8px;
+    padding-left: 14px; position: relative;
+  }
+  .swot-list li::before {
+    content: '—'; position: absolute; left: 0;
+    color: inherit; opacity: 0.5;
+  }
+  .reflection-box {
+    margin-top: 48px;
+    padding: 36px;
+    background: rgba(200,146,42,0.05);
+    border: 1px solid rgba(200,146,42,0.15);
+    border-left: 4px solid var(--gold);
+  }
+  .reflection-box p { font-size: 15px; color: var(--sand); line-height: 1.9; font-style: italic; }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--dark); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testimonial-card {
+    padding: 36px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+  }
+  .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px; color: var(--rust); opacity: 0.2;
+    position: absolute; top: 8px; left: 24px;
+    line-height: 1;
+  }
+  .testimonial-text {
+    font-size: 14px; color: var(--concrete);
+    line-height: 1.8; margin-bottom: 28px;
+    margin-top: 40px; font-style: italic;
+  }
+  .testimonial-author { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 20px; }
+  .author-name { font-weight: 500; color: var(--cream); font-size: 15px; margin-bottom: 4px; }
+  .author-role { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 48px;
+    background: #0D0B09;
+    border-top: 1px solid rgba(200,146,42,0.15);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-left {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--gold);
+  }
+  .footer-right { font-size: 13px; color: var(--stone); text-align: right; }
+  .footer-right a { color: var(--concrete); text-decoration: none; }
+  .footer-right a:hover { color: var(--gold); }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 80px; height: 2px;
+    background: linear-gradient(to right, var(--rust), var(--gold));
+    margin-bottom: 40px;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .cover-left > * { animation: fadeUp 0.8s ease forwards; }
+  .cover-eyebrow { animation-delay: 0.1s; opacity: 0; }
+  .cover-name { animation-delay: 0.2s; opacity: 0; }
+  .cover-tagline { animation-delay: 0.4s; opacity: 0; }
+  .cover-meta { animation-delay: 0.6s; opacity: 0; }
+  .cover-right { animation: fadeUp 0.8s ease 0.3s forwards; opacity: 0; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    section { padding: 80px 20px 60px; }
+    .cover-grid, .intro-layout, .cv-layout,
+    .project-grid, .skills-grid, .collab-grid,
+    .ethics-layout, .swot-grid, .testimonials-grid,
+    .toc-grid { grid-template-columns: 1fr; }
+    .project-header { flex-direction: column; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-brand">MRS</div>
+  <ul class="nav-links">
+    <li><a href="#cover">Home</a></li>
+    <li><a href="#toc">Contents</a></li>
+    <li><a href="#resume">CV</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#testimonials">References</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1: COVER PAGE
+═══════════════════════════════════════════ -->
+<section id="cover">
+  <div class="cover-grid">
+    <div class="cover-left">
+      <div class="cover-eyebrow">Academic Portfolio · Civil Engineering · 2024</div>
+      <h1 class="cover-name">Mann R<br><span>Sonara</span></h1>
+      <p class="cover-tagline">"Building the future one structure at a time — where precision meets purpose, and every foundation tells a story of resilience."</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <span class="label">Program</span>
+          <span>B.Tech — Civil Engineering</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="label">Institution</span>
+          <span>Pandit Deendayal Energy University (PDEU), Gandhinagar</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="label">Specialization</span>
+          <span>Structural Engineering & Sustainable Infrastructure</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="label">Submitted</span>
+          <span>April 2025</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="label">Location</span>
+          <span>Ahmedabad, Gujarat, India</span>
+        </div>
+      </div>
+    </div>
+    <div class="cover-right">
+      <div class="photo-frame">
+        <div class="photo-placeholder">
+          <div class="photo-initials">MRS</div>
+          <div class="photo-caption">Mann R. Sonara</div>
+        </div>
+      </div>
+      <div class="decorative-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2: TABLE OF CONTENTS
+═══════════════════════════════════════════ -->
+<section id="toc">
+  <div class="section-inner">
+    <div class="section-label">Navigate</div>
+    <h2 class="section-title">Table of<br>Contents</h2>
+    <div class="toc-grid">
+      <a href="#intro" class="toc-item">
+        <span class="toc-num">01</span>
+        <span class="toc-text">Introduction & Learning Philosophy</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#resume" class="toc-item">
+        <span class="toc-num">02</span>
+        <span class="toc-text">Resume / Curriculum Vitae</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#projects" class="toc-item">
+        <span class="toc-num">03</span>
+        <span class="toc-text">Interdisciplinary Projects & Research</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#skills" class="toc-item">
+        <span class="toc-num">04</span>
+        <span class="toc-text">Advanced Skills</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#collaboration" class="toc-item">
+        <span class="toc-num">05</span>
+        <span class="toc-text">Collaboration & Leadership</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#ethics" class="toc-item">
+        <span class="toc-num">06</span>
+        <span class="toc-text">Global Awareness & Ethics</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#goals" class="toc-item">
+        <span class="toc-num">07</span>
+        <span class="toc-text">Future Goals & Aspirations</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#conclusion" class="toc-item">
+        <span class="toc-num">08</span>
+        <span class="toc-text">Conclusion & Self-Assessment</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#testimonials" class="toc-item" style="grid-column: span 2;">
+        <span class="toc-num">09</span>
+        <span class="toc-text">Testimonials & Recommendations</span>
+        <span class="toc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3: INTRODUCTION
+═══════════════════════════════════════════ -->
+<section id="intro">
+  <div class="section-inner">
+    <div class="section-label">01 — About Me</div>
+    <h2 class="section-title">Introduction &<br>Learning Philosophy</h2>
+    <div class="intro-layout">
+      <div class="intro-body">
+        <div class="divider"></div>
+        <p>My name is <strong>Mann R. Sonara</strong>, and I am a civil engineering graduate from <strong>Pandit Deendayal Energy University (PDEU), Gandhinagar</strong>. My academic journey has been defined by a relentless curiosity about how built environments shape human experience — from the towering bridges that connect communities to the sustainable drainage systems that protect them from nature's extremes.</p>
+        <p>Growing up in Gujarat, witnessing rapid urban development firsthand ignited my passion for infrastructure that is not just structurally sound, but socially responsible and environmentally conscious. PDEU gave me a rigorous technical foundation while fostering an interdisciplinary mindset — encouraging me to think beyond the drawing board and consider the human, ecological, and economic dimensions of every project.</p>
+        <p>My learning philosophy centres on <strong>deliberate practice, iterative improvement, and collaborative intelligence</strong>. I believe that the greatest structures — both physical and intellectual — are never built alone. Every calculation I perform, every design I draft, and every problem I solve is an opportunity to learn something new about the world and about myself.</p>
+        <p>I am particularly passionate about <strong>green infrastructure, seismic-resistant design, and smart city technologies</strong> — fields where civil engineering intersects with environmental science, urban planning, and data analytics to create solutions for the 21st century.</p>
+      </div>
+      <div>
+        <div class="values-panel">
+          <div class="values-title">Core Values</div>
+          <div class="value-item">
+            <div class="value-icon">🏗️</div>
+            <div>
+              <div class="value-name">Precision & Integrity</div>
+              <div class="value-desc">Every measurement matters. Engineering demands accuracy — and so does character.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🌱</div>
+            <div>
+              <div class="value-name">Sustainability First</div>
+              <div class="value-desc">I design with future generations in mind, minimising environmental footprint.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🤝</div>
+            <div>
+              <div class="value-name">Collaborative Growth</div>
+              <div class="value-desc">The best solutions emerge from diverse perspectives working toward one goal.</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">📐</div>
+            <div>
+              <div class="value-name">Lifelong Learning</div>
+              <div class="value-desc">Technology and materials evolve; a great engineer evolves with them.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4: RESUME / CV
+═══════════════════════════════════════════ -->
+<section id="resume">
+  <div class="section-inner">
+    <div class="section-label">02 — Curriculum Vitae</div>
+    <h2 class="section-title">Resume / CV</h2>
+    <div class="cv-layout">
+      <!-- Left Column -->
+      <div>
+        <div class="cv-section">
+          <div class="cv-section-title">Education</div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">B.Tech — Civil Engineering</div>
+            <div class="cv-entry-sub">Pandit Deendayal Energy University (PDEU), Gandhinagar</div>
+            <div class="cv-entry-date">2020 — 2024</div>
+            <div class="cv-entry-desc">Specialisation in Structural Engineering & Sustainable Infrastructure. Coursework included Reinforced Concrete Design, Geotechnical Engineering, Environmental Engineering, Highway Engineering, and BIM Technology. CGPA: 8.2/10.</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Higher Secondary (Science — PCM)</div>
+            <div class="cv-entry-sub">Gujarat Higher Secondary Education Board</div>
+            <div class="cv-entry-date">2018 — 2020</div>
+            <div class="cv-entry-desc">Scored 87% in Class XII. Strong foundation in Physics, Chemistry, and Mathematics. Participated in state-level science olympiad.</div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Work Experience & Internships</div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Site Engineering Intern</div>
+            <div class="cv-entry-sub">L&T Construction, Ahmedabad Region</div>
+            <div class="cv-entry-date">May 2023 — July 2023</div>
+            <div class="cv-entry-desc">Assisted in supervision of a residential high-rise project. Gained hands-on experience with bar bending schedules, concrete mix design, quality control checks, and daily progress reports using MS Project.</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Structural Design Intern</div>
+            <div class="cv-entry-sub">Consulting Firm (Urban Infrastructure), Gandhinagar</div>
+            <div class="cv-entry-date">December 2022 — January 2023</div>
+            <div class="cv-entry-desc">Prepared AutoCAD drawings for commercial building layouts. Assisted senior engineers with STAAD.Pro structural analysis for a 5-storey frame structure.</div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Technical Skills</div>
+          <span class="skill-tag">AutoCAD</span>
+          <span class="skill-tag">STAAD.Pro</span>
+          <span class="skill-tag">Revit BIM</span>
+          <span class="skill-tag">ETABS</span>
+          <span class="skill-tag">MS Project</span>
+          <span class="skill-tag">Python (Basic)</span>
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">ArcGIS</span>
+          <span class="skill-tag">SAP2000</span>
+          <span class="skill-tag">Primavera P6</span>
+          <span class="skill-tag">Google Earth Pro</span>
+          <span class="skill-tag">Navisworks</span>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Soft Skills</div>
+          <span class="skill-tag">Critical Thinking</span>
+          <span class="skill-tag">Team Leadership</span>
+          <span class="skill-tag">Technical Communication</span>
+          <span class="skill-tag">Problem Solving</span>
+          <span class="skill-tag">Project Management</span>
+          <span class="skill-tag">Adaptability</span>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Co-Curricular & Volunteering</div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Core Member — ASCE PDEU Student Chapter</div>
+            <div class="cv-entry-date">2021 — 2024</div>
+            <div class="cv-entry-desc">Organised technical workshops on concrete technology and earthquake engineering attended by 200+ students.</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">NSS Volunteer — Rural Infrastructure Awareness Drive</div>
+            <div class="cv-entry-date">2022</div>
+            <div class="cv-entry-desc">Conducted village visits in Anand district to assess water supply and sanitation infrastructure needs.</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Technothlon (IIT Guwahati) — Regional Qualifier</div>
+            <div class="cv-entry-date">2021</div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-title">Hobbies & Interests</div>
+          <span class="skill-tag">Scale Modelling</span>
+          <span class="skill-tag">Photography</span>
+          <span class="skill-tag">Chess</span>
+          <span class="skill-tag">Urban Sketching</span>
+          <span class="skill-tag">Trekking</span>
+          <span class="skill-tag">Science Communication</span>
+        </div>
+      </div>
+
+      <!-- Right Sidebar -->
+      <div>
+        <div class="cv-sidebar-card">
+          <div class="sidebar-card-title">Certifications</div>
+          <div class="cert-item">
+            <div class="cert-bullet">◈</div>
+            <div>
+              <div class="cert-name">BIM Professional Certificate — Autodesk</div>
+              <div class="cert-year">2023</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">◈</div>
+            <div>
+              <div class="cert-name">Earthquake Engineering — NPTEL (IIT Kanpur)</div>
+              <div class="cert-year">2023</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">◈</div>
+            <div>
+              <div class="cert-name">AutoCAD Certified User — Autodesk</div>
+              <div class="cert-year">2022</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">◈</div>
+            <div>
+              <div class="cert-name">Environmental Engineering — NPTEL (Elite Grade)</div>
+              <div class="cert-year">2022</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">◈</div>
+            <div>
+              <div class="cert-name">Project Management Fundamentals — PMI</div>
+              <div class="cert-year">2023</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-sidebar-card">
+          <div class="sidebar-card-title">Awards & Recognition</div>
+          <div class="cert-item">
+            <div class="cert-bullet">🏆</div>
+            <div>
+              <div class="cert-name">Best Final Year Project — PDEU Civil Dept.</div>
+              <div class="cert-year">2024</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">🥇</div>
+            <div>
+              <div class="cert-name">1st Place — ASCE Steel Bridge Competition, West India</div>
+              <div class="cert-year">2023</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">🎖️</div>
+            <div>
+              <div class="cert-name">Academic Merit Scholarship — PDEU (3 consecutive years)</div>
+              <div class="cert-year">2021–2024</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">📄</div>
+            <div>
+              <div class="cert-name">Paper Presentation — ICCIEE National Conference</div>
+              <div class="cert-year">2023</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-sidebar-card">
+          <div class="sidebar-card-title">Languages</div>
+          <div class="cert-item">
+            <div class="cert-bullet">●</div>
+            <div>
+              <div class="cert-name">Gujarati — Native</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">●</div>
+            <div>
+              <div class="cert-name">Hindi — Fluent</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">●</div>
+            <div>
+              <div class="cert-name">English — Professional Proficiency</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-sidebar-card">
+          <div class="sidebar-card-title">Contact</div>
+          <div class="cert-item">
+            <div class="cert-bullet">✉</div>
+            <div>
+              <div class="cert-name">mann.sonara@email.com</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">🔗</div>
+            <div>
+              <div class="cert-name">linkedin.com/in/mannrsonara</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-bullet">📍</div>
+            <div>
+              <div class="cert-name">Ahmedabad, Gujarat, India</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5: PROJECTS
+═══════════════════════════════════════════ -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">03 — Research & Work</div>
+    <h2 class="section-title">Interdisciplinary<br>Projects</h2>
+
+    <!-- PROJECT 1 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-title">Seismic Performance Evaluation of RC Frame Structures Using Base Isolation</div>
+          <div class="project-subtitle">Final Year Thesis Project · Structural Engineering + Geotechnical Engineering + Data Analytics</div>
+        </div>
+        <div class="project-number">01</div>
+      </div>
+      <div class="project-body">
+        <div class="project-grid">
+          <div>
+            <div class="project-section-label">Overview & Objectives</div>
+            <div class="project-section-text">Investigated the effectiveness of Lead Rubber Bearing (LRB) base isolation systems in reducing seismic damage to multi-storey RC frame buildings in earthquake-prone regions of Gujarat. The goal was to quantify the reduction in storey drift, base shear, and acceleration response compared to fixed-base buildings of identical design.</div>
+          </div>
+          <div>
+            <div class="project-section-label">Methodology</div>
+            <div class="project-section-text">Used ETABS for non-linear time-history analysis with three earthquake ground motion records (Bhuj 2001 scaled record, El Centro, and Northridge). Modelled both fixed-base and base-isolated variants of a G+7 RC frame. Python scripts were written to post-process spectral acceleration data and plot comparative response curves.</div>
+          </div>
+          <div>
+            <div class="project-section-label">Outcomes & Innovations</div>
+            <div class="project-section-text">The LRB base-isolated model showed a <strong style="color:var(--gold)">62% reduction in peak storey drift</strong> and 48% reduction in base shear. The study proposed a simplified design approach for LRB selection appropriate for Indian soil conditions, contributing to practical code recommendations for IS 1893.</div>
+          </div>
+          <div>
+            <div class="project-section-label">Challenges & Solutions</div>
+            <div class="project-section-text">Calibrating the non-linear behaviour of the LRB isolators proved challenging. Resolved by cross-validating manufacturer data with published experimental literature. Convergence issues in ETABS were addressed by adjusting load step sizes and enabling P-delta effects.</div>
+          </div>
+        </div>
+        <div>
+          <div class="project-section-label">Outcomes</div>
+          <span class="outcome-pill">62% Drift Reduction</span>
+          <span class="outcome-pill">ETABS Non-Linear Analysis</span>
+          <span class="outcome-pill">Conference Paper Presented</span>
+          <span class="outcome-pill">Best Project Award — PDEU 2024</span>
+        </div>
+        <div class="project-visual">
+          <div class="project-visual-inner">
+            <div class="project-visual-icon">📊</div>
+            <div class="project-visual-label">Spectral Response Comparison · Fixed-Base vs. LRB-Isolated · 3 Ground Motions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-title">Sustainable Urban Drainage System Design for a Residential Colony in Gandhinagar</div>
+          <div class="project-subtitle">Group Project · Environmental Engineering + Urban Planning + GIS Mapping</div>
+        </div>
+        <div class="project-number">02</div>
+      </div>
+      <div class="project-body">
+        <div class="project-grid">
+          <div>
+            <div class="project-section-label">Overview & Objectives</div>
+            <div class="project-section-text">Designed a Sustainable Urban Drainage System (SUDS) incorporating rain gardens, permeable pavements, and bioswales for a 12-hectare residential layout. The objective was to reduce urban flooding risk, replenish groundwater, and minimise combined sewer overflow events during monsoon peaks.</div>
+          </div>
+          <div>
+            <div class="project-section-label">Methodology</div>
+            <div class="project-section-text">Integrated GIS spatial analysis (ArcGIS) to map catchment boundaries, slope, and land use. Hydrological modelling was performed using the Rational Method and EPA SWMM for runoff estimation. LID (Low Impact Development) modules were sized using local IMD rainfall data (return period: 25 years).</div>
+          </div>
+          <div>
+            <div class="project-section-label">Outcomes & Innovations</div>
+            <div class="project-section-text">The proposed SUDS design achieved a <strong style="color:var(--gold)">35% reduction in peak runoff</strong> and a projected 22% increase in groundwater recharge. A novel integration of rooftop harvesting with bioswale networks was proposed, adaptable to Gujarat's semi-arid climate. The design was awarded recognition by the PDEU Environmental Engineering faculty.</div>
+          </div>
+          <div>
+            <div class="project-section-label">Challenges & Solutions</div>
+            <div class="project-section-text">Limited local infiltration rate data required field testing using the Double Ring Infiltrometer at three soil sample sites. Coordinated with the Gandhinagar Municipal Corporation for GIS base map acquisition, developing data processing workflows in Python when standard formats were unavailable.</div>
+          </div>
+        </div>
+        <div>
+          <span class="outcome-pill">35% Runoff Reduction</span>
+          <span class="outcome-pill">ArcGIS + EPA SWMM</span>
+          <span class="outcome-pill">GIS Mapped Catchments</span>
+          <span class="outcome-pill">Field Infiltration Testing</span>
+        </div>
+        <div class="project-visual">
+          <div class="project-visual-inner">
+            <div class="project-visual-icon">🗺️</div>
+            <div class="project-visual-label">GIS Catchment Map · LID Component Layout · Hydrograph Comparison</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-title">Structural Health Monitoring of a Highway Bridge Using IoT Sensors</div>
+          <div class="project-subtitle">Research Project · Structural Engineering + Electronics + Computer Science</div>
+        </div>
+        <div class="project-number">03</div>
+      </div>
+      <div class="project-body">
+        <div class="project-grid">
+          <div>
+            <div class="project-section-label">Overview & Objectives</div>
+            <div class="project-section-text">Developed a low-cost Structural Health Monitoring (SHM) framework using accelerometers, strain gauges, and IoT connectivity (Arduino + ESP8266) to detect anomalies in a scaled bridge model. The objective was to validate the system's ability to identify damage scenarios based on changes in natural frequency and mode shapes.</div>
+          </div>
+          <div>
+            <div class="project-section-label">Methodology</div>
+            <div class="project-section-text">Fabricated a 1:50 scale steel Pratt truss bridge model in the PDEU Structures Lab. Sensors were placed at critical nodes. Vibration data was transmitted via Wi-Fi to a cloud dashboard. MATLAB's Signal Processing Toolbox was used for Fast Fourier Transform (FFT) analysis to extract modal parameters before and after simulated damage.</div>
+          </div>
+          <div>
+            <div class="project-section-label">Outcomes & Innovations</div>
+            <div class="project-section-text">The system successfully detected a 7% frequency shift corresponding to a simulated 15% stiffness reduction in a member — demonstrating feasibility for real bridge applications. The total sensor + communication hardware cost was under ₹3,500, making it viable for developing-country infrastructure monitoring contexts.</div>
+          </div>
+          <div>
+            <div class="project-section-label">Challenges & Solutions</div>
+            <div class="project-section-text">Wireless signal interference in the laboratory environment caused data dropouts. This was resolved through error-correction coding in the ESP8266 firmware and redundant sensor placement. MATLAB scripts were written to interpolate missing data points without distorting frequency spectra.</div>
+          </div>
+        </div>
+        <div>
+          <span class="outcome-pill">IoT-Based Monitoring</span>
+          <span class="outcome-pill">FFT Modal Analysis</span>
+          <span class="outcome-pill">₹3,500 Hardware Cost</span>
+          <span class="outcome-pill">Lab Scale Prototype Built</span>
+        </div>
+        <div class="project-visual">
+          <div class="project-visual-inner">
+            <div class="project-visual-icon">🌉</div>
+            <div class="project-visual-label">Scale Truss Model · IoT Sensor Network · FFT Frequency Response Plot</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6: SKILLS
+═══════════════════════════════════════════ -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">04 — Expertise</div>
+    <h2 class="section-title">Advanced Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-number">01</div>
+        <div class="skill-card-icon">🏛️</div>
+        <div class="skill-card-title">Structural Analysis & Design</div>
+        <div class="skill-card-desc">Proficient in design of reinforced concrete and steel structures per IS codes. Experienced with software-based analysis using ETABS, STAAD.Pro, and SAP2000 for buildings, bridges, and retaining walls.</div>
+        <div class="skill-bar-label"><span>ETABS / STAAD.Pro</span><span>88%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+        <div class="skill-bar-label"><span>RC & Steel Design (IS Code)</span><span>85%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+        <div class="skill-bar-label"><span>BIM / Revit</span><span>75%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+        <div style="margin-top:16px">
+          <span class="evidence-tag">ETABS Models</span>
+          <span class="evidence-tag">Thesis Project</span>
+          <span class="evidence-tag">Internship Drawings</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-number">02</div>
+        <div class="skill-card-icon">💻</div>
+        <div class="skill-card-title">Computational & Software Tools</div>
+        <div class="skill-card-desc">Strong command of CAD and engineering simulation tools. Competent in Python scripting for data analysis and MATLAB for signal processing. GIS proficiency enables spatial analysis for infrastructure planning projects.</div>
+        <div class="skill-bar-label"><span>AutoCAD</span><span>92%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+        <div class="skill-bar-label"><span>Python / MATLAB</span><span>72%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:72%"></div></div>
+        <div class="skill-bar-label"><span>ArcGIS</span><span>78%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
+        <div style="margin-top:16px">
+          <span class="evidence-tag">AutoCAD Certificate</span>
+          <span class="evidence-tag">GIS Project</span>
+          <span class="evidence-tag">Python Scripts</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-number">03</div>
+        <div class="skill-card-icon">🌿</div>
+        <div class="skill-card-title">Sustainable & Environmental Engineering</div>
+        <div class="skill-card-desc">Deep knowledge of LID techniques, water treatment processes, and environmental impact assessment. Trained in EPA SWMM stormwater modelling and committed to incorporating green infrastructure into urban design practice.</div>
+        <div class="skill-bar-label"><span>EPA SWMM / Hydrological</span><span>80%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
+        <div class="skill-bar-label"><span>Environmental EIA</span><span>76%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:76%"></div></div>
+        <div class="skill-bar-label"><span>LEED / Green Building</span><span>65%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%"></div></div>
+        <div style="margin-top:16px">
+          <span class="evidence-tag">NPTEL Elite</span>
+          <span class="evidence-tag">SUDS Project</span>
+          <span class="evidence-tag">Field Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-number">04</div>
+        <div class="skill-card-icon">📋</div>
+        <div class="skill-card-title">Leadership & Project Management</div>
+        <div class="skill-card-desc">Proven ability to lead multidisciplinary teams under deadline pressure. Experienced in Gantt chart planning, resource scheduling, and stakeholder communication through ASCE chapter leadership, internship roles, and capstone project management.</div>
+        <div class="skill-bar-label"><span>Team Leadership</span><span>85%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+        <div class="skill-bar-label"><span>MS Project / Scheduling</span><span>78%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
+        <div class="skill-bar-label"><span>Communication & Reporting</span><span>88%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+        <div style="margin-top:16px">
+          <span class="evidence-tag">ASCE Chapter Lead</span>
+          <span class="evidence-tag">L&T Internship</span>
+          <span class="evidence-tag">PMI Certificate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 7: COLLABORATION
+═══════════════════════════════════════════ -->
+<section id="collaboration">
+  <div class="section-inner">
+    <div class="section-label">05 — Teamwork</div>
+    <h2 class="section-title">Collaboration &<br>Leadership</h2>
+    <div class="collab-grid">
+      <div class="collab-card">
+        <div class="collab-card-title">ASCE PDEU Student Chapter — Core Committee</div>
+        <div class="role-tag">Technical Events Coordinator · 2021–2024</div>
+        <p>As Technical Events Coordinator for three consecutive years, I led a team of 12 student volunteers to organise workshops, webinars, and competitions in the areas of concrete technology, structural design, and earthquake engineering. Under my tenure, event attendance grew by over 40%.</p>
+        <p>I mediated disagreements within the team around event budgets and resource allocation by facilitating open round-table discussions, clearly defining roles, and establishing a transparent decision-making process. This experience taught me that productive conflict, when managed with empathy, strengthens teams.</p>
+      </div>
+      <div class="collab-card">
+        <div class="collab-card-title">Final Year Thesis Group — Research Team Lead</div>
+        <div class="role-tag">Team Leader · 4-Member Group · 2023–2024</div>
+        <p>Led a four-person interdisciplinary thesis group combining expertise from structural engineering, computer science, and electronics. Assigned responsibilities based on individual strengths, coordinated weekly sync meetings, and maintained a shared project tracker on Notion.</p>
+        <p>When team dynamics were tested by differing academic commitments mid-semester, I restructured workload distribution and introduced pair-working sessions to maintain momentum. The project delivered on time and won Best Project recognition.</p>
+      </div>
+      <div class="collab-card">
+        <div class="collab-card-title">L&T Construction Internship — Field Coordination</div>
+        <div class="role-tag">Intern — Site Team Collaborator · 2023</div>
+        <p>Worked alongside site engineers, safety officers, sub-contractors, and labour supervisors on a residential high-rise project. Learned to communicate technical requirements across different expertise levels — from on-site workers to senior project managers — adapting vocabulary and detail depth for each audience.</p>
+        <p>Contributed to resolving a concrete pour scheduling conflict by identifying a logistics bottleneck and recommending a revised batching sequence that saved approximately half a day of delay.</p>
+      </div>
+      <div class="collab-card">
+        <div class="collab-card-title">NSS — Rural Infrastructure Campaign</div>
+        <div class="role-tag">Volunteer Team Lead · Anand District · 2022</div>
+        <p>Coordinated a 15-member student team for a five-day rural outreach initiative assessing water supply and sanitation infrastructure. Developed a standardised assessment checklist, trained volunteers on data collection protocols, and compiled a final report submitted to the district Panchayat office.</p>
+        <p>Managing a large, multi-background volunteer group reinforced my ability to lead through motivation and clear communication rather than authority — skills that are equally vital on engineering project sites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8: GLOBAL AWARENESS & ETHICS
+═══════════════════════════════════════════ -->
+<section id="ethics">
+  <div class="section-inner">
+    <div class="section-label">06 — Global Perspective</div>
+    <h2 class="section-title">Global Awareness<br>& Ethics</h2>
+    <div class="ethics-layout">
+      <div class="ethics-body">
+        <div class="divider"></div>
+        <p>Civil engineering does not operate in a vacuum. Every structure I design, every material I specify, and every drainage system I plan has consequences that ripple outward — affecting communities, ecosystems, and future generations. This understanding has been central to how I approach my academic work.</p>
+        <p><strong>The 2001 Bhuj Earthquake</strong> left an indelible mark on my understanding of seismic vulnerability. Growing up in Gujarat, I was aware of how devastating under-designed structures can be for marginalised communities who lack the resources to rebuild. This directly motivated my thesis on base isolation systems — not as an academic exercise, but as a contribution toward genuinely safer buildings for people who cannot afford the consequences of poor engineering.</p>
+        <p><strong>Climate change and urban flooding</strong> are pressing realities for Indian cities. My SUDS project was informed by IPCC projections for increased monsoon intensity in South Asia, acknowledging that infrastructure designed to 1990s rainfall norms may be dangerously inadequate by 2050. I deliberately incorporated adaptive capacity — oversized drainage reserves — into the design.</p>
+        <p><strong>Ethical dimensions</strong> in my work include: responsible use of materials (minimising embodied carbon), inclusive design (ensuring infrastructure serves all socioeconomic groups), and honest representation of structural analysis results — never compromising safety for cost.</p>
+      </div>
+      <div>
+        <div class="ethics-panel">
+          <div class="ethics-panel-title">Ethical Principles in Practice</div>
+          <div class="ethics-principle">
+            <div class="ethics-dot"></div>
+            <div class="ethics-text"><strong style="color:var(--sand)">Public Safety First:</strong> No commercial or deadline pressure justifies compromising structural integrity. Every calculation is a moral act.</div>
+          </div>
+          <div class="ethics-principle">
+            <div class="ethics-dot"></div>
+            <div class="ethics-text"><strong style="color:var(--sand)">Environmental Responsibility:</strong> Actively reducing embodied carbon in material specifications and preferring recycled aggregates where code-compliant.</div>
+          </div>
+          <div class="ethics-principle">
+            <div class="ethics-dot"></div>
+            <div class="ethics-text"><strong style="color:var(--sand)">Inclusive Infrastructure:</strong> Designing for universal accessibility and ensuring rural/low-income communities receive quality engineering attention equal to urban projects.</div>
+          </div>
+          <div class="ethics-principle">
+            <div class="ethics-dot"></div>
+            <div class="ethics-text"><strong style="color:var(--sand)">Transparency & Integrity:</strong> Honest communication of uncertainties in analysis — acknowledging model limitations rather than overstating confidence.</div>
+          </div>
+          <div class="ethics-principle">
+            <div class="ethics-dot"></div>
+            <div class="ethics-text"><strong style="color:var(--sand)">SDG Alignment:</strong> My work aligns with UN SDG 9 (Resilient Infrastructure), SDG 11 (Sustainable Cities), and SDG 13 (Climate Action).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 9: FUTURE GOALS
+═══════════════════════════════════════════ -->
+<section id="goals">
+  <div class="section-inner">
+    <div class="section-label">07 — Looking Ahead</div>
+    <h2 class="section-title">Future Goals<br>& Aspirations</h2>
+    <div class="goals-timeline">
+      <div class="goal-item">
+        <div class="goal-marker"></div>
+        <div class="goal-time">2024 — 2025 · Immediate</div>
+        <div class="goal-title">Graduate Employment in Structural / Infrastructure Consultancy</div>
+        <div class="goal-desc">Join a reputed infrastructure consultancy or EPC firm in India (ideally AECOM, WSP, Jacobs, or a leading Indian firm such as RITES or EIL) to gain comprehensive project experience across the full engineering lifecycle — from feasibility through design, construction supervision, and handover. Build 1,500+ hours of practical ETABS and AutoCAD project experience.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-marker"></div>
+        <div class="goal-time">2025 — 2026 · Short Term</div>
+        <div class="goal-title">GATE Examination & M.Tech in Structural Engineering</div>
+        <div class="goal-desc">Prepare for and clear GATE (Civil Engineering) with a strong score to pursue M.Tech in Structural Engineering from a premier institution (IIT Bombay, IIT Delhi, or NIT Surat). Specialise in earthquake engineering and advanced concrete technology to deepen my research capability and industry expertise.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-marker"></div>
+        <div class="goal-time">2026 — 2028 · Medium Term</div>
+        <div class="goal-title">Research Publication & International Exposure</div>
+        <div class="goal-desc">Publish at least two peer-reviewed journal papers in indexed journals (Elsevier, ASCE, or Scopus-listed Indian journals) on seismic design or sustainable drainage. Pursue a short-term research exchange or internship at a university in Japan, Germany, or the US — countries at the frontier of earthquake engineering and smart infrastructure.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-marker"></div>
+        <div class="goal-time">2030 & Beyond · Long Term</div>
+        <div class="goal-title">Senior Design Engineer & Eventual Entrepreneurship</div>
+        <div class="goal-desc">Aspire to lead large-scale infrastructure projects as a Senior Structural Engineer. Long-term, establish an engineering consultancy focused on resilient, climate-adaptive infrastructure for Tier-2 and Tier-3 Indian cities — combining technical excellence with social impact. Obtain a Professional Engineer (PE) or CEng designation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 10: CONCLUSION
+═══════════════════════════════════════════ -->
+<section id="conclusion">
+  <div class="section-inner">
+    <div class="section-label">08 — Reflection</div>
+    <h2 class="section-title">Conclusion &<br>Self-Assessment</h2>
+    <div class="swot-grid">
+      <div class="swot-cell">
+        <div class="swot-letter">S</div>
+        <div class="swot-title">Strengths</div>
+        <ul class="swot-list">
+          <li>Strong analytical and structural design skills backed by ETABS, STAAD.Pro proficiency</li>
+          <li>Proven research ability — Best Project award and conference paper</li>
+          <li>Leadership experience through ASCE chapter and thesis team</li>
+          <li>Interdisciplinary mindset blending structural, environmental, and digital skills</li>
+          <li>High academic performance with consistent merit scholarship</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-letter">W</div>
+        <div class="swot-title">Weaknesses</div>
+        <ul class="swot-list">
+          <li>Limited industry exposure relative to peers who undertook longer internships</li>
+          <li>Programming skills (Python) are functional but need deepening for data science applications</li>
+          <li>Public speaking confidence needs further development for larger conference forums</li>
+          <li>Geotechnical specialisation is an area for growth beyond foundational coursework</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-letter">O</div>
+        <div class="swot-title">Opportunities</div>
+        <ul class="swot-list">
+          <li>India's ₹111 lakh crore National Infrastructure Pipeline creates enormous demand for skilled engineers</li>
+          <li>Smart Cities Mission and AMRUT 2.0 programmes align directly with my urban drainage expertise</li>
+          <li>Growing international academic collaborations at PDEU and IITs for earthquake engineering research</li>
+          <li>Rising demand for BIM specialists as construction digitalisation accelerates in India</li>
+        </ul>
+      </div>
+      <div class="swot-cell">
+        <div class="swot-letter">T</div>
+        <div class="swot-title">Threats</div>
+        <ul class="swot-list">
+          <li>Highly competitive postgraduate entrance examinations (GATE) with limited top-ranked seats</li>
+          <li>Rapid evolution of AI-aided design tools requires continuous upskilling</li>
+          <li>Economic slowdowns can impact infrastructure project pipelines and hiring</li>
+          <li>Climate change creating new design challenges that current codes have not fully addressed</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reflection-box">
+      <p>Four years at PDEU have taught me that engineering is fundamentally an act of service. Every beam I calculate, every drainage system I model, and every team I lead is in service of people who will live and work within the structures I help bring into existence. My greatest achievement is not any award or grade — it is the conviction, earned through practice, that I can approach complex problems with intellectual honesty, technical rigour, and deep care for the communities my work affects. I graduate not as a finished engineer, but as one who has learned how to learn — and that, I believe, is the most valuable outcome of all.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 11: TESTIMONIALS
+═══════════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-label">09 — Recommendations</div>
+    <h2 class="section-title">Testimonials</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">Mann consistently demonstrated exceptional analytical rigour in his thesis work on base-isolated structures. His ability to integrate software simulation with practical design rationale is rare in undergraduate students. The clarity of his research methodology and the quality of his ETABS models were publication-ready. I am confident he will excel in advanced structural research and professional practice.</div>
+        <div class="testimonial-author">
+          <div class="author-name">Dr. Priya K. Mehta</div>
+          <div class="author-role">PROFESSOR · STRUCTURAL ENGINEERING DEPT · PDEU, GANDHINAGAR</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">During his internship at our site, Mann showed a maturity and technical awareness well beyond his years. He quickly understood site procedures, actively engaged with the engineering team, and contributed meaningfully to our daily progress review process. His ability to identify the concrete scheduling bottleneck and propose a practical solution saved us significant time. He will be a valuable asset to any engineering organisation.</div>
+        <div class="testimonial-author">
+          <div class="author-name">Mr. Rajesh Sharma</div>
+          <div class="author-role">PROJECT MANAGER · L&T CONSTRUCTION · AHMEDABAD</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <div class="testimonial-text">As ASCE PDEU Student Chapter Faculty Advisor, I observed Mann's leadership development across three years. He transformed from an enthusiastic participant into a decisive, empathetic coordinator who could motivate peers, manage budgets responsibly, and represent the chapter with professionalism. His technical knowledge combined with his communication skills makes him an exceptionally well-rounded young engineer.</div>
+        <div class="testimonial-author">
+          <div class="author-name">Prof. Amit Desai</div>
+          <div class="author-role">FACULTY ADVISOR · ASCE PDEU STUDENT CHAPTER · CIVIL ENGINEERING DEPT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">Mann R. Sonara</div>
+  <div class="footer-right">
+    B.Tech Civil Engineering · PDEU Gandhinagar · Class of 2024<br>
+    <a href="mailto:mann.sonara@email.com">mann.sonara@email.com</a> · 
+    <a href="#">linkedin.com/in/mannrsonara</a><br>
+    <span style="color:var(--stone);font-size:11px;font-family:'DM Mono',monospace;">© 2024 Mann R. Sonara · All Rights Reserved</span>
+  </div>
+</footer>
+
+</body>
+</html>
